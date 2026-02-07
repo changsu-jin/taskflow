@@ -46,7 +46,7 @@ npm run test:coverage # 커버리지 리포트
 
 ## 🌐 Deploy
 
-Vercel + Prisma Postgres로 배포됨: https://taskflow-six-dusky.vercel.app
+Vercel + Prisma Postgres로 배포됨: https://taskflow.42class.com
 
 ```bash
 vercel login          # Vercel 로그인
