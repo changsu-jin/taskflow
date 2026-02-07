@@ -21,13 +21,17 @@
 # 1. 의존성 설치
 npm install
 
-# 2. DB 초기화
+# 2. 환경변수 설정
+cp .env.example .env
+# DATABASE_URL을 설정 (로컬: SQLite, 프로덕션: PostgreSQL)
+
+# 3. DB 초기화
 npx prisma db push
 
-# 3. 샘플 데이터 (선택)
+# 4. 샘플 데이터 (선택)
 npm run db:seed
 
-# 4. 개발 서버
+# 5. 개발 서버
 npm run dev
 ```
 
@@ -42,8 +46,12 @@ npm run test:coverage # 커버리지 리포트
 
 ## 🌐 Deploy
 
+Vercel + Prisma Postgres로 배포됨: https://taskflow-six-dusky.vercel.app
+
 ```bash
-vercel   # Vercel CLI로 배포
+vercel login          # Vercel 로그인
+vercel link           # 프로젝트 연결
+vercel --prod         # 프로덕션 배포
 ```
 
 자세한 배포 가이드: [`DEPLOY_GUIDE.md`](./DEPLOY_GUIDE.md)
@@ -68,9 +76,8 @@ taskflow/
 │   ├── prisma.ts        # Prisma 싱글톤
 │   └── types.ts         # 타입 & 상수
 ├── prisma/
-│   ├── schema.prisma           # SQLite (개발)
-│   ├── schema.production.prisma # PostgreSQL (프로덕션)
-│   └── seed.ts                 # 샘플 데이터
+│   ├── schema.prisma    # PostgreSQL (Prisma Postgres)
+│   └── seed.ts          # 샘플 데이터
 ├── __tests__/           # 71 테스트 케이스
 ├── .github/workflows/   # CI/CD
 └── QA_REPORT.md         # QA 체크리스트
@@ -83,7 +90,7 @@ taskflow/
 | Framework | Next.js 14 (App Router) |
 | Language | TypeScript 5.7 |
 | Styling | Tailwind CSS 3.4 |
-| Database | SQLite → Vercel Postgres |
+| Database | Prisma Postgres (PostgreSQL) |
 | ORM | Prisma 6.3 |
 | Drag & Drop | @hello-pangea/dnd |
 | Testing | Jest + Testing Library |
