@@ -16,6 +16,8 @@ const config: Config = {
     "lib/**/*.{ts,tsx}",
     "!**/*.d.ts",
     "!**/node_modules/**",
+    "!app/layout.tsx",
+    "!lib/prisma.ts",
   ],
   coverageThreshold: {
     global: {
