@@ -1,4 +1,6 @@
 /**
+ * @jest-environment node
+ *
  * Projects API Route Test Suite
  * - CRUD 엔드포인트 테스트
  * - 입력값 유효성 검증

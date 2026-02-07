@@ -1,4 +1,6 @@
 /**
+ * @jest-environment node
+ *
  * Tasks API Route Test Suite
  * - CRUD 엔드포인트 테스트
  * - 필터링 & 검색 테스트
